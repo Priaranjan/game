@@ -1,4 +1,3 @@
-console.log("Hello world");
 function getComputerChoice(){
     let val=Math.random()
     if(val*3>2) return "Scissors";
@@ -12,8 +11,6 @@ function getHumanChoice(){
     else if(choice==2) return "Paper";
     else return "Scissors";
 }
-console.log(getComputerChoice());
-console.log(getHumanChoice());
 let humanScore=0,computerScore=0;
 function playRound(humanChoice,computerChoice){
     if(humanChoice===computerChoice){
@@ -31,3 +28,19 @@ function playRound(humanChoice,computerChoice){
     console.log("You lose! "+computerChoice+" beats "+humanChoice);
     }
 }
+function playGame(){
+    for(let i=0;i<5;i++){
+    const humanChoice=getHumanChoice();
+    const computerChoice=getComputerChoice();
+    playRound(humanChoice,computerChoice);
+    console.log("You: "+humanScore+", Computer: "+computerScore);
+    }
+    if(humanScore>computerScore){
+        console.log("good luck, you won");
+    }
+    else if(humanScore<computerScore){
+        console.log("Oops! you lost");
+    }
+    else console.log("That's a Tie!!");
+}
+playGame();
